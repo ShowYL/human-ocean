@@ -7,10 +7,9 @@ export default function Header() {
         <header>
             <nav>
                 <ul className='nav_top'>
-                    <li><img src={logo}/></li>
-                    <li>Human Ocean</li>
-                    <li>About</li>
-                    <li>Contact</li>
+                    <li><img src={logo}/>Human Ocean</li>
+                    <li>Crédits</li>
+                    <li>Captcha</li>
                 </ul>
             </nav>
         </header>
