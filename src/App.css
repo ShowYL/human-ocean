@@ -1,11 +1,13 @@
 * {
   /*  */
   list-style: none;
+  margin: 0;
 }
 
 :root {
   --primary-color: #67ae94;
   --primary-color-hoover:#4d786874 ;
+  --dark-color-bar: #3a474274;
 
 }
 
@@ -44,13 +46,88 @@ header {
 }
 
 
-/* --------Hero------------ */
+/* -----------Hero------------ */
 
+.hero {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap:10px;
+}
+
+
+
+/* ---------------panel Obligatoire---------------- */
+
+.obligatoire{
+  margin:10px;
+  padding: 10px;
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  background-color: var(--dark-color-bar);
+  margin: 20px 0;
+}
+
+.panel {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+
+}
+
+.left-panel, .right-panel {
+  flex: 1;
+  border: 2px solid var(--primary-color);
+  margin : 10px;
+  text-align: center;
+}
+
+.right-panel img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
+/* _________--------------_____________style footer--------------____________----------- */
 
 footer {
   margin: 20px;
   padding: 10px;
   border-radius: 15px;
   background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+
+
+.nav_bottom{
+  display: flex;
+  justify-content: center;
+  gap :10px;
+  margin-bottom: 10px;
+}
+
+.nav_bottom li{
+  padding: 5px 10px;
+  transition: color 0.3s ease;
+}
+
+.nav_bottom li:hover{
+  color: var(--primary-color-hoover);
+  cursor: pointer;
+}
+
 

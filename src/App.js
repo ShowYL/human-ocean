@@ -1,14 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './component/header.jsx';
 import Footer from './component/footer.jsx';
-import Hero from './component/Hero.jsx';
+import Obligatoire from './page/Obligatoire.jsx';
+
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Hero />
+      <Obligatoire />
       <Footer />
     </div>
   );
