@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../ressources/logo.png'
 
 export default function Header() {
 
@@ -6,6 +7,7 @@ export default function Header() {
         <header>
             <nav>
                 <ul className='nav_top'>
+                    <li><img src={logo}/></li>
                     <li>Human Ocean</li>
                     <li>About</li>
                     <li>Contact</li>
