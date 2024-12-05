@@ -5,8 +5,18 @@ import { Link } from 'react-router-dom';
 
 
 export default function Header() {
-
     return (
+        <>
+        <div className="bubbles">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         <header>
             <nav>
                 <ul className='nav_top'>
@@ -16,5 +26,6 @@ export default function Header() {
                 </ul>
             </nav>
         </header>
+        </>
     );
 }
