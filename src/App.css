@@ -8,93 +8,15 @@
   --primary-color: #67ae94;
   --primary-color-hoover:#4d786874 ;
   --dark-color-bar: #3a474274;
+  --credits-bg-color: #1e1e1e;
+  --credits-text-color: #ffffff;
+  --credits-heading-color: #f0f0f0;
+  --contributor-card-bg-color: #2a2a2a;
+  --contributor-card-border-color: #444;
+  --contributor-name-color: #e0e0e0;
+  --contributor-info-color: #b0b0b0;
+  --contributor-link-color: #1e90ff;
 
-}
-
-/* ---------------------------------style header-------------------------------- */
-
-header {
-  margin: 20px;
-  border-radius: 15px;
-  background-color: var(--primary-color);
-}
-
-.nav_top {
-  display: flex;
-  justify-content: center;
-  align-items:center;
-  gap: 20px;
-}
-
-.nav_top li {
-  display: flex;
-  align-items: center;
-  border: 2px solid var(--primary-color);
-  border-radius: 10px;
-  padding: 5px 10px;
-  transition: color 0.3s ease, border-color 0.3s ease;
-}
-
-.nav_top li:hover {
-  border-color: var(--primary-color-hoover);
-  cursor: pointer;
-}
-
-.nav_top img{
-  width:2.2rem;
-  height:auto;
-}
-
-.logo{
-  margin-right:10px;
-}
-
-
-/* -----------Hero------------ */
-
-.hero {
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap:10px;
-}
-
-
-
-/* ---------------panel Obligatoire---------------- */
-
-.obligatoire{
-  margin:10px;
-  padding: 10px;
-}
-
-hr {
-  border: 0;
-  height: 2px;
-  background-color: var(--dark-color-bar);
-  margin: 20px 0;
-}
-
-.panel {
-  display: flex;
-  justify-content: space-between;
-  gap: 5px;
-
-}
-
-.left-panel, .right-panel {
-  flex: 1;
-  border: 2px solid var(--primary-color);
-  margin : 10px;
-  text-align: center;
-}
-
-.right-panel img {
-  max-width: 100%;
-  border-radius: 10px;
 }
 
 /* ---------------Background---------------- */
@@ -178,6 +100,202 @@ body {
       animation-duration: 14s;
       animation-delay: 8s;
     }
+    
+
+/* ---------------------------------style header-------------------------------- */
+
+header {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: var(--primary-color);
+}
+
+.nav_top {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  gap: 20px;
+}
+
+.nav_top li {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 5px 10px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.element-li{
+  list-style: none;
+}
+
+.nav_top li:hover {
+  border-color: var(--primary-color-hoover);
+  cursor: pointer;
+}
+
+.nav_top img{
+  width:2.2rem;
+  height:auto;
+}
+
+.logo{
+  margin-right:10px;
+}
+
+
+/* -----------Hero------------ */
+
+.hero {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap:10px;
+}
+
+
+
+/* ---------------panel Obligatoire---------------- */
+
+.obligatoire{
+  margin:10px;
+  padding: 10px;
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  background-color: var(--dark-color-bar);
+  margin: 20px 0;
+}
+
+.panel {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+
+}
+
+.left-panel, .right-panel {
+  flex: 1;
+  border: 2px solid var(--primary-color);
+  margin : 10px;
+  text-align: center;
+}
+
+.right-panel img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+
+/* -----------------------___________________________Credits----------------------------____________________________ */
+
+.credits-container {
+  background-color: var(--credits-bg-color); 
+  color: var(--credits-text-color); 
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.credits-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: var(--credits-heading-color);
+}
+
+.contributors-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.contributor-card {
+  background-color: var(--contributor-card-bg-color); 
+  border: 1px solid var(--contributor-card-border-color);
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px;
+  width: 200px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.contributor-card img.avatar {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.contributor-info h2 {
+  font-size: 1.2em;
+  margin: 10px 0 5px;
+  color: var(--contributor-name-color);
+}
+
+.contributor-info p {
+  margin: 5px 0;
+  color: var(--contributor-info-color);
+}
+
+.contributor-info a {
+  color: var(--contributor-link-color); 
+  text-decoration: none;
+}
+
+.contributor-info a:hover {
+  text-decoration: underline;
+}
+
+.participation-graph {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.participation-graph h2 {
+  font-size: 1.5em;
+  color: var(--credits-heading-color);
+}
+
+.participation-graph p {
+  color: var(--contributor-info-color);
+}
+
+.contributor-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.contributor-card-front {
+  background-color: var(--contributor-card-bg-color);
+  text-decoration: white;
+}
+
+.contributor-card-plus {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--contributor-card-bg-color);
+  color: var(--credits-text-color);
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1000;
+  width: 300px;
+  text-align: center;
+  cursor: pointer;
+}
+
 
 /* _________--------------_____________style footer--------------____________----------- */
 

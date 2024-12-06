@@ -1,16 +1,27 @@
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './component/header.jsx';
 import Footer from './component/footer.jsx';
 import Obligatoire from './page/Obligatoire.jsx';
+import Credits from './page/Credits.jsx';
+
 
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Obligatoire />
-      <Footer />
-    </div>
+    <>
+      <Router>
+        <div className="App">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Obligatoire />} />
+            <Route path="/credits" element={<Credits />} />
+            {/* <Route path="/captcha" element={<Captcha />} /> */}
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </>
   );
 }
 
