@@ -27,7 +27,15 @@ const CommitsGraph = ({ repos }) => {
                     }
                     uniqueAuthors.get(authorName).count += 1;
                 });
-                setCommitsData(Array.from(uniqueAuthors.values()));
+
+                // Filter out duplicate authors
+                const filteredAuthors = Array.from(uniqueAuthors.values()).filter((author, index, self) =>
+                    index === self.findIndex((t) => (
+                        t.author === author.author
+                    ))
+                );
+
+                setCommitsData(filteredAuthors);
             } catch (error) {
                 console.error('Error fetching commits:', error);
             }
@@ -79,11 +87,11 @@ const CommitsGraph = ({ repos }) => {
             .attr('height', d => height - y(d.count))
             .attr('fill', '#69b3a2');
 
-        svg.selectAll('.clip-path')
+        svg.selectAll('clipPath')
             .data(commitsData)
             .enter()
             .append('clipPath')
-            .attr('id', d => `clip-${d.author}`)
+            .attr('id', (d, i) => `clip-${i}`)
             .append('circle')
             .attr('cx', d => x(d.author) + x.bandwidth() / 2)
             .attr('cy', height + 17)
@@ -99,7 +107,7 @@ const CommitsGraph = ({ repos }) => {
             .attr('width', 24)
             .attr('height', 24)
             .attr('xlink:href', d => d.avatar)
-            .attr('clip-path', d => `url(#clip-${d.author})`);
+            .attr('clip-path', (d, i) => `url(#clip-${i})`);
 
     }, [commitsData]);
 
