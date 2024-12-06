@@ -44,6 +44,7 @@ th, td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: left;
+    color: black;
 }
 
 th {
@@ -92,6 +93,7 @@ tr:nth-child(even) {
     max-width: 90%;
     max-height: 90%;
     overflow: auto;
+    color: black;
 }
 
 .hints-content h2 {
