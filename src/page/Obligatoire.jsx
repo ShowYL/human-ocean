@@ -20,6 +20,7 @@ export default function Obligatoire() {
                     <Ocean currentImage={currentImage} />
                 </div>
             </div>
+            <hr />
         </section>
     );
 }

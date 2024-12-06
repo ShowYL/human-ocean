@@ -115,12 +115,12 @@ export default function Form() {
 
     return (
         <div className="form-container">
-            <h1>Formulaire</h1>
+            <h1>✨ Formulaire ✨</h1>
             <p>
                 Bienvenue sur notre formulaire interactif ! Pour écrire votre adresse e-mail, vous devez répondre correctement à une série d'énigmes. 
-                Chaque réponse correcte vous donnera une lettre qui sera ajoutée à votre adresse e-mail. 
-                Entrez la réponse à l'énigme dans le champ ci-dessous et regardez votre adresse e-mail se construire lettre par lettre. 
-                Bonne chance !
+                <br/>Chaque réponse correcte vous donnera une lettre qui sera ajoutée à votre adresse e-mail. 
+                <br/>Entrez la réponse à l'énigme dans le champ ci-dessous et regardez votre adresse e-mail se construire lettre par lettre. 
+                <br/> Bonne chance ! 🍀
                 <br />
                 <br />
                 Ps : Pour supprimer la dernière lettre, entrez le mot "supprimer".

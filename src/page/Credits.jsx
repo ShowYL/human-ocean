@@ -94,7 +94,8 @@ const Credits = () => {
 
     return (
         <div className="credits-container">
-            <h1>Crédits</h1>
+            <h1>🙌 Crédits 🙌</h1>
+            <hr />
             <div className="contributors-list">
                 {contributors.map((contributor, index) => (
                     <motion.div 
