@@ -22,7 +22,7 @@ export default function Header() {
                 <ul className='nav_top'>
                     <Link to="/" className="no-underline"><li><img src={logo} alt="Logo" className="logo"/>Human Ocean</li></Link>
                     <Link to="/credits" className='element-li no-underline'><li>Crédits</li></Link>
-                    <Link to="/captcha" className='element-li no-underline'><li>Captcha</li></Link>
+                    <li className='element-li'><a className='no-underline' href="https://cookie-cauchemar-capgemini.vercel.app/">Cookie Cauchemar</a></li>
                     <Link to="/the-form" className='element-li no-underline'><li>The Formulaire</li></Link>
                 </ul>
             </nav>
