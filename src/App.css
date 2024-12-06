@@ -16,7 +16,6 @@
   --contributor-name-color: #e0e0e0;
   --contributor-info-color: #b0b0b0;
   --contributor-link-color: #1e90ff;
-
 }
 
 /* ---------------Background---------------- */
@@ -283,6 +282,7 @@ hr {
 .contributor-card-front {
   background-color: var(--contributor-card-bg-color);
   text-decoration: white;
+  margin-bottom: 12px;
 }
 
 .contributor-card-plus {

@@ -7,67 +7,78 @@ const contributors = [
         name: 'Paqui ESTHER',
         github: 'Paquies',
         role: 'Développeur',
-        avatar: 'https://github.com/paquies.png'
+        avatar: 'https://github.com/paquies.png',
+        info: 'Je suis un développeur passionné par la technologie et l\'innovation. J\'aime apprendre de nouvelles choses et partager mes connaissances avec les autres.'
     },
     {
         name: 'Yann LACAZE',
         github: 'ShowYL',
         role: 'Développeur',
-        avatar: 'https://github.com/showyl.png'
+        avatar: 'https://github.com/showyl.png',
+        info: 'Je suis un développeur passionné par la technologie et l\'innovation. J\'aime apprendre de nouvelles choses et partager mes connaissances avec les autres.'
     },
     {
         name: 'Clement GINER',
         github: 'D4kooo',
         role: ' 🫃🏻 Développeuse 🫠',
-        avatar: 'https://github.com/D4kooo.png'
+        avatar: 'https://github.com/D4kooo.png',
+        info: 'Je suis un développeur passionné par la technologie et l\'innovation. J\'aime apprendre de nouvelles choses et partager mes connaissances avec les autres.'
     },
     {
         name: 'Fantin PESANT',
         github: 'F4NT1N',
         role: 'Développeur',
-        avatar: 'https://github.com/F4NT1N.png'
+        avatar: 'https://github.com/F4NT1N.png',
+        info: 'Je suis un développeur passionné par la technologie et l\'innovation. J\'aime apprendre de nouvelles choses et partager mes connaissances avec les autres.'
     },
     {
         name: 'Étienne NOEL',
         github: 'EtienneNo',
         role: 'Developpeur',
-        avatar: 'https://github.com/EtienneNo.png'
+        avatar: 'https://github.com/EtienneNo.png',
+        info: 'Je suis un développeur passionné par la technologie et l\'innovation. J\'aime apprendre de nouvelles choses et partager mes connaissances avec les autres.'
     },
     {
         name: 'Elfin POUGET-PEJOAN',
         github: 'Nifle-CGE',
         role: 'Developpeur',
-        avatar: 'https://github.com/Nifle-CGE.png'
+        avatar: 'https://github.com/Nifle-CGE.png',
+        info: 'Je suis un développeur passionné par la technologie et l\'innovation. J\'aime apprendre de nouvelles choses et partager mes connaissances avec les autres.'
     },
     {
         name: 'Allan HOARAU',
         github: 'rompichames',
         role: 'Developpeur',
-        avatar: 'https://github.com/rompichames.png'
+        avatar: 'https://github.com/rompichames.png',
+        info: 'Je suis un développeur passionné par la technologie et l\'innovation. J\'aime apprendre de nouvelles choses et partager mes connaissances avec les autres.'
     },
     {
         name: 'Yoan POUX-BORIES',
         github: 'YoanPOUX',
         role: 'Developpeur',
-        avatar: 'https://github.com/YoanPOUX.png'
+        avatar: 'https://github.com/YoanPOUX.png',
+        info: 'Je suis un développeur passionné par la technologie et l\'innovation. J\'aime apprendre de nouvelles choses et partager mes connaissances avec les autres.'
     },
     {
         name: 'Martin BAGOT',
         github: 'MartinBgt',
         role: 'Developpeur',
-        avatar: 'https://github.com/MartinBgt.png'
+        avatar: 'https://github.com/MartinBgt.png',
+        info: 'Je suis un développeur passionné par la technologie et l\'innovation. J\'aime apprendre de nouvelles choses et partager mes connaissances avec les  autres.'
     },
     {
         name: 'Nathan BOLE-RICHARD',
         github: 'IAidenI',
         role: 'Developpeur',
-        avatar: 'https://github.com/IAidenI.png'
+        avatar: 'https://github.com/IAidenI.png',
+        info: 'Je suis un développeur passionné par la technologie et l\'innovation. J\'aime apprendre de nouvelles choses et partager mes connaissances avec les autres.'
     },
     {
         name: 'Pierrick AUTRET',
         github: 'Yeesou',
         role: 'Developpeur',
-        avatar: 'https://github.com/Yeesou.png'
+        avatar: 'https://github.com/Yeesou.png',
+        info: 'Je suis un développeur passionné par la technologie et l\'innovation. J\'aime apprendre de nouvelles choses et partager mes connaissances avec les autres.'
     }
 ];
 
@@ -118,7 +129,7 @@ const Credits = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.8 }}
                         onClick={() => setSelectedId(null)}
-                        style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, margin: 'auto', width: '80%', height: '80%', backgroundColor: '#2a2a2a', zIndex: 1000 }}
+                        style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, margin: 'auto', width: '65%', height: '65%', backgroundColor: '#2a2a2a', zIndex: 1000 }}
                     >
                         <div className="contributor-card-inner">
                             <div className="contributor-card-front">
@@ -132,7 +143,7 @@ const Credits = () => {
                                 </div>
                             </div>
                             <div className='info-contributor'>
-                                <p>Plus d'informations ici...</p>
+                                <p>{contributors[selectedId].info}</p>
                             </div>
                         </div>
                     </motion.div>
