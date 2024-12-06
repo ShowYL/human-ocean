@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import CommitsGraph from '../component/CommitsGraph.jsx';
 
 const contributors = [
     {
@@ -70,6 +71,13 @@ const contributors = [
     }
 ];
 
+
+const repos = [
+    { owner: 'ShowYL', name: 'human-ocean' },
+    { owner: 'D4kooo', name: 'Cookie-Cauchemar-CAPGEMINI-' },
+    { owner: 'F4NT1N', name: 'N2I_Jeu_IA' }
+];
+
 const Credits = () => {
     const [selectedId, setSelectedId] = useState(null);
 
@@ -134,7 +142,10 @@ const Credits = () => {
             <div className="participation-graph">
                 <h2>Graphique de participation</h2>
                 <p>Graphique ou visualisation des contributions ici</p>
+                <br />
+                <CommitsGraph repos={repos} />
             </div>
+            <hr />
         </div>
     );
 };
