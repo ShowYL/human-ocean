@@ -48,6 +48,7 @@ export default function Form() {
     const [inputValue, setInputValue] = useState('');
     const [letterValue, setLetterValue] = useState('');
     const [foundEntries, setFoundEntries] = useState({});
+    const [showHints, setShowHints] = useState(false);
 
     const handleChange = (e) => {
         const value = e.target.value;
@@ -55,10 +56,6 @@ export default function Form() {
 
         if (value === specialWord) {
             // Supprimer la dernière lettre
-            const lastLetter = letterValue.slice(-1);
-            const updatedEntries = { ...foundEntries };
-            delete updatedEntries[lastLetter];
-            setFoundEntries(updatedEntries);
             setLetterValue(letterValue.slice(0, -1));
             setInputValue('');
         } else {
@@ -75,6 +72,47 @@ export default function Form() {
     };
 
     const sortedEntries = Object.values(foundEntries).sort((a, b) => a.letter.localeCompare(b.letter));
+
+    const hints = [
+        'Un fruit jaune courbé',
+        'Une période de temps',
+        'Un espace ouvert pour cultiver des plantes',
+        'Un mot pour réfléchir profondément',
+        'Une plante à fleurs',
+        'Un objet pour dessiner ou écrire',
+        'Une partie du corps',
+        'Un fruit rouge ou vert',
+        'Un animal qui galope',
+        'Un matériau pour écrire',
+        'Un processus de révision',
+        'Quelque chose de nouveau et original',
+        'Un petit sac',
+        'Un poisson d\'eau douce',
+        'Un processus d\'ajout',
+        'Un mot pour proxénétisme',
+        'Une ouverture dans un mur',
+        'Un ensemble de règles pour programmer',
+        'Un mot pour tourmenter',
+        'Un animal mythique',
+        'Un mot pour laid',
+        'Une porte mal orthographiée',
+        'Un appareil de chauffage',
+        'Un endroit ou un lieu',
+        'Un bonbon collant',
+        'Une île',
+        'Un mot pour interjection',
+        'Un mot pour de',
+        'Une ville en France',
+        'Un minéral précieux',
+        'Un mot pour saint',
+        'Un nombre après neuf',
+        'Une ville en France',
+        'Un mollusque comestible',
+        'Un produit de poule',
+        'Un héros',
+        'Un mot pour hâte',
+        'Un point de ponctuation'
+    ];
 
     return (
         <div className="form-container">
@@ -110,6 +148,20 @@ export default function Form() {
                     </tbody>
                 </table>
             </div>
+            <button onClick={() => setShowHints(true)} className="hints-button">Indices</button>
+            {showHints && (
+                <div className="hints-modal">
+                    <div className="hints-content">
+                        <h2>Indices</h2>
+                        <ul>
+                            {hints.map((hint, index) => (
+                                <li key={index}>{hint}</li>
+                            ))}
+                        </ul>
+                        <button onClick={() => setShowHints(false)} className="close-button">Fermer</button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

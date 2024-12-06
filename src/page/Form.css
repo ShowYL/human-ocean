@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin : 20px ;
+    margin: 20px;
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
@@ -53,4 +53,61 @@ th {
 
 tr:nth-child(even) {
     background-color: #f9f9f9;
+}
+
+.hints-button, .close-button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hints-button:hover, .close-button:hover {
+    background-color: #0056b3;
+}
+
+.hints-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hints-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+}
+
+.hints-content h2 {
+    margin-bottom: 20px;
+}
+
+.hints-list {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.hints-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.hints-content li {
+    margin-bottom: 10px;
 }
