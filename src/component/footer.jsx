@@ -4,7 +4,7 @@ export default function Footer() {
 
     return (
         <footer>
-            <p className='credit'>© 2021 Human Ocean</p>
+            <p className='credit'>© 2024 assert(brain.isEmpty())</p>
         </footer>
     );
 }

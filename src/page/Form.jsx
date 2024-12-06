@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Form.css'; // Assurez-vous de créer ce fichier CSS
+import './Form.css'; 
 
 const dictionary = [
     { letter: 'a', word: 'banane' },
@@ -42,8 +42,7 @@ const dictionary = [
     { letter: '.', word: 'point' }
 ];
 
-const specialWord = 'supprimer'; // Mot spécial pour supprimer la dernière lettre
-
+const specialWord = 'supprimer'; 
 export default function Form() {
     const [inputValue, setInputValue] = useState('');
     const [letterValue, setLetterValue] = useState('');

@@ -13,21 +13,17 @@ export default function CorpsHumain({ currentImage, setCurrentImage }) {
   // Liste des SVG
   const svgs = [brain, rein, heart, lung];
 
-  // Fonction pour aller à l'image précédente
   const prevSlide = () => {
     setCurrentImage((prevIndex) => (prevIndex === 0 ? svgs.length - 1 : prevIndex - 1));
   };
 
-  // Fonction pour aller à l'image suivante
   const nextSlide = () => {
     setCurrentImage((prevIndex) => (prevIndex === svgs.length - 1 ? 0 : prevIndex + 1));
   };
 
-  // Utiliser D3 pour appliquer des animations ou styles
   useEffect(() => {
     const carousel = d3.select(carouselRef.current);
 
-    // Ajouter une transition simple pour l'animation
     carousel
       .select('img')
       .transition()
@@ -45,8 +41,8 @@ export default function CorpsHumain({ currentImage, setCurrentImage }) {
           src={svgs[currentImage]}
           alt={`Slide ${currentImage}`}
           style={{
-            width: '50%', // Largeur en pourcentage du conteneur parent
-            height: 'auto', // Maintenir les proportions
+            width: '50%',
+            height: 'auto', 
             transition: 'opacity 0.5s ease-in-out',
             margin: 'auto',
           }}
