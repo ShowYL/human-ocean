@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from '../component/Hero';
+import CorpsHumain from './CorpsHumain.jsx';
 
 
 export default function Obligatoire() {
@@ -10,6 +11,7 @@ export default function Obligatoire() {
             <div className='panel'>
                 <div className='left-panel'>
                     <h2>Les Fonction du corps Humain</h2>
+                    <CorpsHumain />
                 </div>
                 <div className='right-panel'>
                 <h2>Les Fonction de l'ocean</h2>
