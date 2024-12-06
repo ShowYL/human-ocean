@@ -98,11 +98,14 @@ hr {
 }
 
 /* ---------------Background---------------- */
+
 body {
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   background-image: linear-gradient(0deg, #022244, #58c8da);
+  background-attachment: fixed;
   margin: 0;
 }
 
@@ -175,10 +178,6 @@ body {
       animation-duration: 14s;
       animation-delay: 8s;
     }
-    
-
-
-
 
 /* _________--------------_____________style footer--------------____________----------- */
 
