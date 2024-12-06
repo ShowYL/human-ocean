@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Form.css'; // Assurez-vous de créer ce fichier CSS
 
 const dictionary = [
     { letter: 'a', word: 'banane' },
@@ -41,26 +42,57 @@ const dictionary = [
     { letter: '.', word: 'point' }
 ];
 
+const specialWord = 'supprimer'; // Mot spécial pour supprimer la dernière lettre
+
 export default function Form() {
     const [inputValue, setInputValue] = useState('');
+    const [letterValue, setLetterValue] = useState('');
     const [foundEntries, setFoundEntries] = useState({});
 
     const handleChange = (e) => {
         const value = e.target.value;
         setInputValue(value);
 
-        const foundEntry = dictionary.find(entry => entry.word === value);
-        if (foundEntry && !foundEntries[foundEntry.letter]) {
-            const updatedEntries = { ...foundEntries, [foundEntry.letter]: foundEntry };
+        if (value === specialWord) {
+            // Supprimer la dernière lettre
+            const lastLetter = letterValue.slice(-1);
+            const updatedEntries = { ...foundEntries };
+            delete updatedEntries[lastLetter];
             setFoundEntries(updatedEntries);
+            setLetterValue(letterValue.slice(0, -1));
             setInputValue('');
+        } else {
+            const foundEntry = dictionary.find(entry => entry.word === value);
+            if (foundEntry) {
+                setLetterValue(prev => prev + foundEntry.letter);
+                setInputValue('');
+                if (!foundEntries[foundEntry.letter]) {
+                    const updatedEntries = { ...foundEntries, [foundEntry.letter]: foundEntry };
+                    setFoundEntries(updatedEntries);
+                }
+            }
         }
     };
 
+    const sortedEntries = Object.values(foundEntries).sort((a, b) => a.letter.localeCompare(b.letter));
+
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '80vh' }}>
-            <input type="text" value={inputValue} onChange={handleChange} />
-            <div style={{ marginTop: '20px' }}>
+        <div className="form-container">
+            <h1>Formulaire</h1>
+            <p>
+                Bienvenue sur notre formulaire interactif ! Pour écrire votre adresse e-mail, vous devez répondre correctement à une série d'énigmes. 
+                Chaque réponse correcte vous donnera une lettre qui sera ajoutée à votre adresse e-mail. 
+                Entrez la réponse à l'énigme dans le champ ci-dessous et regardez votre adresse e-mail se construire lettre par lettre. 
+                Bonne chance !
+                <br />
+                <br />
+                Ps : Pour supprimer la dernière lettre, entrez le mot "supprimer".
+            </p>
+            <p>Entrez un mot pour obtenir une lettre</p>
+            
+            <input type="text" value={inputValue} onChange={handleChange} placeholder="Entrez un mot" className="input-field" />
+            <input type="text" value={letterValue} readOnly placeholder="Votre mail" className="input-field" />
+            <div className="table-container">
                 <table>
                     <thead>
                         <tr>
@@ -69,7 +101,7 @@ export default function Form() {
                         </tr>
                     </thead>
                     <tbody>
-                        {Object.values(foundEntries).map((entry, index) => (
+                        {sortedEntries.map((entry, index) => (
                             <tr key={index}>
                                 <td>{entry.letter}</td>
                                 <td>{entry.word}</td>
