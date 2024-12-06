@@ -1,6 +1,41 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
+const things = ["pedestrian crossing", "cow", "giraffe", "hippopotamus", "flamingo"];
+
+const foodImages = [];
+const loadedFoodImages = [];
+let foods = [];
+$(document).ready(function () {
+    for (let i = 0; i < 5; i++) {
+        var keyword = things[Math.floor(Math.random() * things.length)];
+        $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+            {
+                tags: keyword,
+                tagmode: "any",
+                format: "json"
+            },
+            function (data) {
+                var rnd = Math.floor(Math.random() * data.items.length);
+
+                var image_src = data.items[rnd]['media']['m'].replace("_m", "_b");
+
+                foodImages.push(image_src);
+            });
+    }
+
+    foodImages.forEach(src => {
+        console.log(src);
+        var img = new Image();
+        img.src = src;
+        loadedFoodImages.push(img);
+    });
+
+    for (let i = 0; i < 3; i++) {
+        foods.push(generateFood());
+    }
+});
+
 const box = 20;
 const foodSize = 3 * box; // Taille des aliments 3x3
 let snake = [
@@ -11,10 +46,7 @@ let snake = [
 ];
 
 let direction = 3; // Initial direction: left
-let foods = [];
-for (let i = 0; i < 3; i++) {
-    foods.push(generateFood());
-}
+
 
 document.addEventListener("keydown", directionControl);
 
@@ -46,7 +78,8 @@ function generateFood() {
         overlapping = false;
         newFood = {
             x: Math.floor(Math.random() * 17 + 1) * box,
-            y: Math.floor(Math.random() * 17 + 1) * box
+            y: Math.floor(Math.random() * 17 + 1) * box,
+            image: loadedFoodImages[Math.floor(Math.random() * loadedFoodImages.length)]
         };
 
         // Vérifier si la nouvelle nourriture se chevauche avec le serpent
@@ -83,8 +116,9 @@ function draw() {
     }
 
     for (let i = 0; i < foods.length; i++) {
-        ctx.fillStyle = "red";
-        ctx.fillRect(foods[i].x, foods[i].y, foodSize, foodSize);
+        foods[i].image.onload = function () {
+            ctx.drawImage(foods[i].image, foods[i].x, foods[i].y, foodSize, foodSize);
+        }
     }
 
     let snakeX = snake[0].x;
