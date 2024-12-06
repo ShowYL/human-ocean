@@ -2,15 +2,18 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 const box = 20;
-let snake = [{ x: 10 * box, y: 10 * box }, { x: 11 * box, y: 10 * box }, { x: 12 * box, y: 10 * box }, { x: 13 * box, y: 10 * box }];
+const foodSize = 3 * box; // Taille des aliments 3x3
+let snake = [
+    { x: 10 * box, y: 10 * box },
+    { x: 11 * box, y: 10 * box },
+    { x: 12 * box, y: 10 * box },
+    { x: 13 * box, y: 10 * box }
+];
 
-let direction = 3;
+let direction = 3; // Initial direction: left
 let foods = [];
-for (let i = 0; i < 4; i++) {
-    foods.push({
-        x: Math.floor(Math.random() * 19 + 1) * box,
-        y: Math.floor(Math.random() * 19 + 1) * box
-    });
+for (let i = 0; i < 3; i++) {
+    foods.push(generateFood());
 }
 
 document.addEventListener("keydown", directionControl);
@@ -36,8 +39,39 @@ function collision(newHead, snake) {
     return false;
 }
 
+function generateFood() {
+    let newFood;
+    let overlapping;
+    do {
+        overlapping = false;
+        newFood = {
+            x: Math.floor(Math.random() * 17 + 1) * box,
+            y: Math.floor(Math.random() * 17 + 1) * box
+        };
+
+        // Vérifier si la nouvelle nourriture se chevauche avec le serpent
+        for (let i = 0; i < snake.length; i++) {
+            if (newFood.x >= snake[i].x && newFood.x < snake[i].x + box &&
+                newFood.y >= snake[i].y && newFood.y < snake[i].y + box) {
+                overlapping = true;
+                break;
+            }
+        }
+
+        // Vérifier si la nouvelle nourriture se chevauche avec d'autres aliments
+        for (let i = 0; i < foods.length; i++) {
+            if (newFood.x >= foods[i].x + foodSize && newFood.x < foods[i].x + foodSize &&
+                newFood.y >= foods[i].y + foodSize && newFood.y < foods[i].y + foodSize) {
+                overlapping = true;
+                break;
+            }
+        }
+    } while (overlapping);
+
+    return newFood;
+}
+
 function draw() {
-    fed = false
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (let i = 0; i < snake.length; i++) {
@@ -50,7 +84,7 @@ function draw() {
 
     for (let i = 0; i < foods.length; i++) {
         ctx.fillStyle = "red";
-        ctx.fillRect(foods[i].x, foods[i].y, box, box);
+        ctx.fillRect(foods[i].x, foods[i].y, foodSize, foodSize);
     }
 
     let snakeX = snake[0].x;
@@ -61,16 +95,19 @@ function draw() {
     if (direction == 2) snakeX += box;
     if (direction == 1) snakeY += box;
 
+    let ateFood = false;
     for (let i = 0; i < foods.length; i++) {
-        if (snakeX == foods[i].x && snakeY == foods[i].y) {
-            foods[i] = {
-                x: Math.floor(Math.random() * 19 + 1) * box,
-                y: Math.floor(Math.random() * 19 + 1) * box
-            };
-            fed = true
+        if (snakeX >= foods[i].x && snakeX < foods[i].x + foodSize &&
+            snakeY >= foods[i].y && snakeY < foods[i].y + foodSize) {
+            foods[i] = generateFood();
+            ateFood = true;
+            break;
         }
     }
-    if (!fed) snake.pop()
+
+    if (!ateFood) {
+        snake.pop();
+    }
 
     let newHead = {
         x: snakeX,
