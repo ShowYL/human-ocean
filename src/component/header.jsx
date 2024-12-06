@@ -20,7 +20,7 @@ export default function Header() {
         <header>
             <nav>
                 <ul className='nav_top'>
-                    <li><img src={logo} alt="Logo"/><Link to="/" >Human Ocean</Link></li>
+                    <li><img src={logo} alt="Logo" className="logo"/><Link to="/" >Human Ocean</Link></li>
                     <li><Link to="/credits" className='element-li'>Crédits</Link></li>
                     <li><Link to="/captcha" className='element-li'>Captcha</Link></li>
                 </ul>
