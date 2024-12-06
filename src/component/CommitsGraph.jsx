@@ -28,14 +28,7 @@ const CommitsGraph = ({ repos }) => {
                     uniqueAuthors.get(authorName).count += 1;
                 });
 
-                // Filter out duplicate authors
-                const filteredAuthors = Array.from(uniqueAuthors.values()).filter((author, index, self) =>
-                    index === self.findIndex((t) => (
-                        t.author === author.author
-                    ))
-                );
-
-                setCommitsData(filteredAuthors);
+                setCommitsData(Array.from(uniqueAuthors.values()));
             } catch (error) {
                 console.error('Error fetching commits:', error);
             }
