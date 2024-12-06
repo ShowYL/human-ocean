@@ -50,18 +50,18 @@ function generateFood() {
         };
 
         // Vérifier si la nouvelle nourriture se chevauche avec le serpent
+        // (aX < (bX + bLen) && (aX + aLen) > bX) && (aY < (bY - bLen) && (aY - aLen) > bY)
         for (let i = 0; i < snake.length; i++) {
-            if (newFood.x >= snake[i].x && newFood.x < snake[i].x + box &&
-                newFood.y >= snake[i].y && newFood.y < snake[i].y + box) {
+            if (newFood.x < (snake[i].x + box) && (newFood.x + foodSize) > snake[i].x && newFood.y < (snake[i].y + box) && (newFood.y + foodSize) > snake[i].y) {
                 overlapping = true;
                 break;
             }
         }
 
         // Vérifier si la nouvelle nourriture se chevauche avec d'autres aliments
+        // (aX < (bX + bLen) && (aX + aLen) > bX) && (aY < (bY - bLen) && (aY - aLen) > bY)
         for (let i = 0; i < foods.length; i++) {
-            if (newFood.x >= foods[i].x + foodSize && newFood.x < foods[i].x + foodSize &&
-                newFood.y >= foods[i].y + foodSize && newFood.y < foods[i].y + foodSize) {
+            if (newFood.x < (foods[i].x + foodSize) && (newFood.x + foodSize) > foods[i].x && newFood.y < (foods[i].y + foodSize) && (newFood.y + foodSize) > foods[i].y) {
                 overlapping = true;
                 break;
             }
