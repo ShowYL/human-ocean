@@ -145,6 +145,10 @@ header {
   margin-right:10px;
 }
 
+.no-underline{
+  text-decoration: none;
+}
+
 
 /* -----------Hero------------ */
 
