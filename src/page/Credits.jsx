@@ -157,7 +157,7 @@ const Credits = () => {
                 <br />
                 <CommitsGraph repos={repos} />
                 <br />
-                <p>** Ce graphique représente le nombre de comits effectuer, ce ci n'est donc pas représentatif de la réalité du travail réalisé.</p>
+                <p>** Ce graphique représente le nombre de comits effectuer, ceci n'est donc pas représentatif de la réalité du travail réalisé.</p>
             </div>
             <hr />
         </div>
